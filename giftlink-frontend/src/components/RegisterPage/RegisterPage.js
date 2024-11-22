@@ -27,23 +27,26 @@ function RegisterPage() {
 
     // Create handleRegister function and include console.log
     const handleRegister = async () => {
-        const response = await fetch(`${urlConfig.backendUrl}/register`, {
-            // Step 1 - Task 6: Set method.
-            method: "POST",
+        const response = await fetch(
+            `${urlConfig.backendUrl}/api/auth/register`,
+            {
+                // Step 1 - Task 6: Set method.
+                method: "POST",
 
-            // Step 1 - Task 7: Set headers.
-            headers: {
-                "Content-Type": "application/json",
-            },
+                // Step 1 - Task 7: Set headers.
+                headers: {
+                    "Content-Type": "application/json",
+                },
 
-            // Step 1 - Task 8: Set body to send user details.
-            body: JSON.stringify({
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                password: password,
-            }),
-        });
+                // Step 1 - Task 8: Set body to send user details.
+                body: JSON.stringify({
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    password: password,
+                }),
+            }
+        );
 
         // Step 2 - Task 1: Access data coming from fetch API.
         const json = await response.json();
